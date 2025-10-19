@@ -52,23 +52,36 @@ h6 {
     --bg: hsl(245, 50%, 10%);
     --bg-dark: hsl(245, 50%, 5%);
     --bg-light: hsl(245, 50%, 15%);
+    --bg-dark-transparent: hsl(245 50% 5% / 0.95);
     --border: hsl(245, 50%, 30%);
+    --border-dark: hsl(245, 50%, 20%);
     --text: hsl(245, 50%, 90%);
     --text-muted: hsl(245, 50%, 75%);
+    --bg-gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --bg-gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
     --color-tertiary: hsl(305, 80%, 80%);
     --color-accent: hsl(185, 80%, 80%);
+    --highlight: hsl(245, 50%, 60%);
+    --border-card: 1px solid var(--border);
+    --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
     }
 
 .light {
     --bg: hsl(245, 50%, 90%);
     --bg-light: hsl(245, 50%, 95%);
     --bg-dark: hsl(245, 50%, 85%);
-    --bg-light: hsl(245, 50%, 15%);
+    --bg-dark-transparent: hsl(245 50% 85% / 0.95);
     --text: hsl(245, 50%, 10%);
     --text-muted: hsl(245, 50%, 25%);
     --color-secondary: hsl(245, 50%, 10%);
     --color-tertiary: hsl(305, 80%, 20%);
     --color-accent: hsl(185, 80%, 20%);
+    --highlight: hsl(245, 50%, 100%);
+    --border: hsl(245, 50%, 30%);
+    --border-dark: hsl(245, 50%, 20%);
+    --bg-gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --bg-gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --border-card: 1px solid var(--bg);
 }
 
 body {
@@ -86,7 +99,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 40px;
+    padding: 36px 40px 16px 40px;
     border-bottom: 2px solid var(--border);
 }
 
@@ -98,9 +111,11 @@ nav span {
     color: var(--color-tertiary);
 }
 
+.menu-icon {
+    display: none;
+}
 
-
-.color-theme-svg {
+.color-theme-svg, .menu-svg {
     fill: var(--color-tertiary);
 } 
 
@@ -117,3 +132,58 @@ nav ul li:hover, nav svg:hover {
     cursor: pointer;
 }
 
+/* NAV BAR TILL HERE */
+
+.leftMenuPanel {
+    transition: transform 0.2s ease-in;
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-300px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    border-right: 2px solid var(--border-dark);
+    background-color: var(--bg-dark-transparent);
+    z-index: 10;
+}
+
+.leftMenuPanel ul {
+    list-style-type: none;
+}
+
+.leftMenuPanel ul li {
+    font-weight: 500;
+    color: var(--text);
+    background-color: var(--bg);
+    margin-bottom: 8px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    border: var(--border-card);
+    border-top: 1px solid var(--highlight);
+    background: var(--bg-gradient);
+    box-shadow: var(--shadow);
+}
+
+.leftMenuPanel ul li:hover {
+    background: var(--bg-gradient-hover);
+    cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+    .container {
+        filter: blur(3px);
+    }   
+    .leftMenuPanel {
+        transform: translateX(0px);
+    }
+    .ul-hide {
+        display: none;
+    }
+    .menu-icon {
+        display: inline;
+    }
+}
