@@ -47,3 +47,73 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+:root {
+    --bg: hsl(245, 50%, 10%);
+    --bg-dark: hsl(245, 50%, 5%);
+    --bg-light: hsl(245, 50%, 15%);
+    --border: hsl(245, 50%, 30%);
+    --text: hsl(245, 50%, 90%);
+    --text-muted: hsl(245, 50%, 75%);
+    --color-tertiary: hsl(305, 80%, 80%);
+    --color-accent: hsl(185, 80%, 80%);
+    }
+
+.light {
+    --bg: hsl(245, 50%, 90%);
+    --bg-light: hsl(245, 50%, 95%);
+    --bg-dark: hsl(245, 50%, 85%);
+    --bg-light: hsl(245, 50%, 15%);
+    --text: hsl(245, 50%, 10%);
+    --text-muted: hsl(245, 50%, 25%);
+    --color-secondary: hsl(245, 50%, 10%);
+    --color-tertiary: hsl(305, 80%, 20%);
+    --color-accent: hsl(185, 80%, 20%);
+}
+
+body {
+    background-color: var(--bg);
+}
+
+.container {
+    margin: 0 auto;
+    height: 100vh;
+    max-width: 1200px;
+}
+
+nav {
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-bottom: 2px solid var(--border);
+}
+
+nav h1 {
+    font-size: 1.5rem;
+}
+
+nav span {
+    color: var(--color-tertiary);
+}
+
+
+
+.color-theme-svg {
+    fill: var(--color-tertiary);
+} 
+
+nav ul {
+    font-weight: 600;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: var(--text-muted);
+}
+
+nav ul li:hover, nav svg:hover {
+    cursor: pointer;
+}
+
