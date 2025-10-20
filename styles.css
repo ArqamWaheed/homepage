@@ -86,12 +86,14 @@ h6 {
 
 body {
     background-color: var(--bg);
+    transition: background-color 0.5s ease, color 0.5s ease; 
 }
 
 .container {
     margin: 0 auto;
     height: 100vh;
     max-width: 1200px;
+    transition: filter 0.2s ease-in;
 }
 
 nav {
@@ -143,7 +145,7 @@ nav ul li:hover, nav svg:hover {
     position: absolute;
     left: 0;
     top: 0;
-    width: 300px;
+    width: calc(200px + 5vw);
     height: 100vh;
     border-right: 2px solid var(--border-dark);
     background-color: var(--bg-dark-transparent);
@@ -174,12 +176,6 @@ nav ul li:hover, nav svg:hover {
 
 
 @media (max-width: 900px) {
-    .container {
-        filter: blur(3px);
-    }   
-    .leftMenuPanel {
-        transform: translateX(0px);
-    }
     .ul-hide {
         display: none;
     }
