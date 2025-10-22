@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -87,12 +89,13 @@ h6 {
 body {
     background-color: var(--bg);
     transition: background-color 0.5s ease, color 0.5s ease; 
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container {
     margin: 0 auto;
     height: 100vh;
-    max-width: 1200px;
+    width: clamp(320px, 100%, 1200px);
     transition: filter 0.2s ease-in;
 }
 
@@ -100,8 +103,9 @@ nav {
     color: var(--text);
     display: flex;
     align-items: center;
+    height: 60px;
     justify-content: space-between;
-    padding: 36px 40px 16px 40px;
+    padding: 8px clamp(16px, 5vw, 40px);
     border-bottom: 2px solid var(--border);
 }
 
@@ -126,7 +130,7 @@ nav ul {
     list-style-type: none;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: clamp(16px, 5vw, 30px);
     color: var(--text-muted);
 }
 
@@ -157,6 +161,7 @@ nav ul li:hover, nav svg:hover {
 }
 
 .leftMenuPanel ul li {
+    transition: all 0.2s ease;
     font-weight: 500;
     color: var(--text);
     background-color: var(--bg);
@@ -164,13 +169,12 @@ nav ul li:hover, nav svg:hover {
     border-radius: 8px;
     padding: 8px 16px;
     border: var(--border-card);
-    border-top: 1px solid var(--highlight);
-    background: var(--bg-gradient);
     box-shadow: var(--shadow);
 }
 
 .leftMenuPanel ul li:hover {
-    background: var(--bg-gradient-hover);
+    border-top: 1px solid var(--highlight);
+    background-color: var(--bg-gradient-hover);
     cursor: pointer;
 }
 
@@ -183,9 +187,12 @@ nav ul li:hover, nav svg:hover {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border);
-    padding: clamp(40px, min(8vw, 15vh), 200px) 40px; 
+    padding: clamp(40px, min(8vw, 15vh), 200px) clamp(16px, 5vw, 40px); 
 }
 
+.HomeText {
+    max-width: 600px;
+}
 
 .HomeText h2:nth-child(1) {
     color: var(--text);
@@ -207,9 +214,17 @@ nav ul li:hover, nav svg:hover {
 
 .imgPfp {
     border-radius: 50%;
-    width: 350px;
-    height: 350px;
-    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    min-width: 250px;
+    aspect-ratio: 1/1;
+}
+
+.pictureContainer {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0 16px;
 }
 
 .contactBtn {
@@ -227,7 +242,75 @@ nav ul li:hover, nav svg:hover {
     cursor: pointer;
 }
 
-@media (max-width: 900px) {
+/* HOME SECTION ABOVE */
+
+
+.Projects {
+    border-bottom: 1px solid var(--border);
+    padding: 16px clamp(16px, 5vw, 40px); 
+}
+
+.Projects h2 span {
+    font-size: 2.5rem;
+    color: var(--color-tertiary);
+}
+
+.Projects h2 {
+    color: var(--text);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ProjectCard {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-dark);
+    border-radius: 25px;
+    padding: 32px;
+    gap: 20px;
+    box-shadow: var(--shadow);
+    border: var(--border-card);
+    transition: all 0.3s ease;
+}
+
+.ProjectCard:hover {
+    background-color: var(--bg-gradient-hover);
+    border-top: 1px solid var(--highlight);
+    will-change: scale;
+    scale: 1.02;
+    transform: translateY(-4px)
+}
+
+.ProjectImage {
+    width: 40%;
+}
+
+.ProjectAbout {
+    flex-grow: 1;
+    flex-basis: min-content;
+}
+
+
+.ProjectImage img {
+    border-radius: 25px;
+    aspect-ratio: 2/1;
+}
+
+.ProjectAbout h2 {
+    color: var(--text);
+}
+
+.ProjectAbout p {
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .ProjectCard {
+        flex-direction: column;
+    }
+    .ProjectImage {
+        width: 100%;
+    }
     .ul-hide {
         display: none;
     }
