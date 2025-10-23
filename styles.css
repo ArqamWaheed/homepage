@@ -19,6 +19,10 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+a {
+    all: unset;
+}
+
 img,
 picture,
 video,
