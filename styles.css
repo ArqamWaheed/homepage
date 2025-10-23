@@ -286,6 +286,10 @@ nav ul li:hover, nav svg:hover {
 }
 
 .ProjectAbout {
+    height: 204px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex-grow: 1;
     flex-basis: min-content;
 }
@@ -302,6 +306,15 @@ nav ul li:hover, nav svg:hover {
 
 .ProjectAbout p {
     color: var(--text-muted);
+}
+
+.GithubSVG {
+    fill: var(--color-tertiary);
+}
+
+.GithubSVGDiv:hover {
+    cursor: pointer;
+    border-radius: 25px;
 }
 
 @media (max-width: 768px) {
