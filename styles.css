@@ -246,6 +246,9 @@ nav ul li:hover, nav svg:hover {
 
 
 .Projects {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
     border-bottom: 1px solid var(--border);
     padding: 16px clamp(16px, 5vw, 40px); 
 }
@@ -286,14 +289,17 @@ nav ul li:hover, nav svg:hover {
 }
 
 .ProjectAbout {
-    height: 204px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
     flex-basis: min-content;
+    gap: 20px;
 }
 
+.ProjectAboutHeader h2 {
+    margin-bottom: 10px;
+}
 
 .ProjectImage img {
     border-radius: 25px;
@@ -306,16 +312,33 @@ nav ul li:hover, nav svg:hover {
 
 .ProjectAbout p {
     color: var(--text-muted);
+    overflow: hidden;
 }
 
-.GithubSVG {
+.ProjectAboutFooter {
+    display: flex;
+    gap: 20px;
+}
+
+.GithubSVG, .LivePreviewSVG  {
+    transition: fill 0.2s ease; 
     fill: var(--color-tertiary);
 }
 
-.GithubSVGDiv:hover {
+.GithubSVGDiv,.LivePreviewSVGDiv  {
+    width: max-content;
+}
+
+
+.GithubSVGDiv:hover, .LivePreviewSVGDiv:hover {
     cursor: pointer;
     border-radius: 25px;
 }
+
+.GithubSVGDiv:hover .GithubSVG, .LivePreviewSVGDiv:hover .LivePreviewSVG {
+    fill: var(--text);
+}
+
 
 @media (max-width: 768px) {
     .ProjectCard {
