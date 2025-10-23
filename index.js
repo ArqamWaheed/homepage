@@ -43,17 +43,88 @@ $leftMenuPanel.addEventListener('click', function(e) {
     e.stopPropagation();
 })
 
+const $emailCopyBtn = document.querySelector('.emailDivSVG');
+const emailText = 'arqam.dev.waheed@gmail.com';
+
+$emailCopyBtn.addEventListener('click', async function() {
+    try {
+        await navigator.clipboard.writeText(emailText);
+    } catch (err) {
+        console.error('Failed to copy email:', err);
+    }
+});
+
+// Contact Form Handler
+const contactForm = document.getElementById('contactForm');
+const submitBtn = contactForm.querySelector('.submitBtn');
+const submitBtnText = contactForm.querySelector('.submitBtnText');
+const submitBtnIcon = contactForm.querySelector('.submitBtnIcon');
+const submitBtnSpinner = contactForm.querySelector('.submitBtnSpinner');
+const formMessage = contactForm.querySelector('.formMessage');
+
+contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtnText.textContent = 'Sending...';
+    submitBtnIcon.style.display = 'none';
+    submitBtnSpinner.style.display = 'block';
+    formMessage.textContent = '';
+    formMessage.className = 'formMessage';
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            formMessage.textContent = '✓ Message sent successfully!';
+            formMessage.classList.add('success');
+            contactForm.reset();
+        } else {
+            console.error('Web3Forms error:', data);
+            formMessage.textContent = `✗ ${data.message || 'Failed to send message. Please check your API key.'}`;
+            formMessage.classList.add('error');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        formMessage.textContent = '✗ Failed to send. Check console for details.';
+        formMessage.classList.add('error');
+    } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'Submit';
+        submitBtnIcon.style.display = 'block';
+        submitBtnSpinner.style.display = 'none';
+    }
+});
+
 const hiddenElements = document.querySelectorAll('.hidden');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+        } 
     })
 })
+
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
 
 hiddenElements.forEach((el) => observer.observe(el));
 

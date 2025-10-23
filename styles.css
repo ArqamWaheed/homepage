@@ -298,14 +298,14 @@ nav ul li:hover, nav svg:hover {
     gap: 24px;
     box-shadow: var(--shadow);
     border: var(--border-card);
-    transition: all 0.3s ease;
 }
 
 .technologyCard:hover {
     background-color: var(--bg-gradient-hover);
     border-top: 1px solid var(--highlight);
-    will-change: scale;
+    box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.2);
     scale: 1.02;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, scale 0.2s ease;
 }
 
 .technologyCard h3 {
@@ -350,15 +350,15 @@ nav ul li:hover, nav svg:hover {
     gap: 20px;
     box-shadow: var(--shadow);
     border: var(--border-card);
-    transition: all 0.3s ease;
 }
 
 .ProjectCard:hover {
     background-color: var(--bg-gradient-hover);
     border-top: 1px solid var(--highlight);
-    will-change: scale;
+    box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.2);
     scale: 1.02;
-    transform: translateY(-4px);
+    translate: 0 -4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, scale 0.2s ease, translate 0.2s ease;
 }
 
 .ProjectImage {
@@ -397,8 +397,8 @@ nav ul li:hover, nav svg:hover {
     gap: 20px;
 }
 
-.GithubSVG, .LivePreviewSVG  {
-    transition: fill 0.2s ease; 
+.GithubSVG, .LivePreviewSVG, .LinkedInSVG, .InstagramSVG  {
+    transition: all 0.2s ease; 
     fill: var(--color-tertiary);
 }
 
@@ -407,22 +407,250 @@ nav ul li:hover, nav svg:hover {
 }
 
 
-.GithubSVGDiv:hover, .LivePreviewSVGDiv:hover {
+.GithubSVGDiv:hover, .LivePreviewSVGDiv:hover, .LinkedinSVGDiv:hover, .InstagramSVGDiv:hover {
     cursor: pointer;
     border-radius: 25px;
 }
 
-.GithubSVGDiv:hover .GithubSVG, .LivePreviewSVGDiv:hover .LivePreviewSVG {
+.GithubSVGDiv:hover .GithubSVG, .LivePreviewSVGDiv:hover .LivePreviewSVG, .LinkedinSVGDiv:hover .LinkedInSVG, .InstagramSVGDiv:hover .InstagramSVG {
     fill: var(--text);
+    scale: 1.02;
 }
 
 
 /* PROJECT SECTION above */
 
+.Contact {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+    padding: clamp(40px, min(8vw, 15vh), 50px) clamp(16px, 5vw, 40px) clamp(40px, min(8vw, 15vh), 80px) clamp(16px, 5vw, 40px); 
+}
+
+.Contact h2 {
+    color: var(--text);
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.Contact h2 span {
+    color: var(--color-tertiary);
+    font-size: 3.5rem;
+}
+
+.Contact p {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+}
+
+.Contact .emailText {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.Contact a {
+    font-size: 1.5rem;
+    color: var(--color-tertiary);
+    border-bottom: 1px solid hsl(305, 80%, 85%);
+}
+
+.Contact a:hover, .emailDivSVG:hover {
+    cursor: pointer;
+}
+
+.emailDivSVG:hover .emailSVG {
+    fill: var(--color-tertiary);
+}
+
+.emailDiv {
+    transition: scale 0.2s ease;
+}
+
+.emailDivSVG:active {
+    scale: 1.07;
+}
+
+.emailDiv {
+    display: flex;
+    gap: 10px;
+}
+
+.emailSVG {
+    transition: fill 0.3s ease;
+    fill: var(--text);
+}
+
+.contactImages {
+    margin-top: 8px;
+    display: flex;
+    gap: 12px;
+}
+
+
+/* Contact Section Above */
+
+.Contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(20px, 5vw, 60px);
+}
+
+.contactDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactFormDiv {
+    display: flex;
+    align-items: center;
+}
+
+.contactForm {
+    width: 100%;
+    background-color: var(--bg-dark);
+    padding: clamp(24px, 5vw, 40px);
+    border-radius: 25px;
+    border: var(--border-card);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contactForm h3 {
+    color: var(--text);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 8px;
+}
+
+.contactForm h3 span {
+    color: var(--color-tertiary);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: var(--color-tertiary);
+    background-color: var(--bg-light);
+    box-shadow: 0 0 0 3px hsla(305, 80%, 80%, 0.1);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--bg);
+    color: var(--color-tertiary);
+    border: 1px solid var(--color-tertiary);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.submitBtn:hover {
+    background-color: var(--bg-gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsla(305, 80%, 80%, 0.3);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+.submitArrow {
+    fill: var(--color-tertiary);
+    transition: transform 0.3s ease;
+}
+
+.submitBtn:hover .submitArrow {
+    transform: translateX(4px);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.submitBtnSpinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.formMessage {
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: -8px;
+}
+
+.formMessage.success {
+    color: var(--color-accent);
+    background-color: hsla(185, 80%, 80%, 0.1);
+    border: 1px solid var(--color-accent);
+}
+
+.formMessage.error {
+    color: hsl(0, 80%, 70%);
+    background-color: hsla(0, 80%, 70%, 0.1);
+    border: 1px solid hsl(0, 80%, 70%);
+}
+
+/* Contact Section Above */
+
 .hidden {
     opacity: 0;
     filter: blur(5px);
-    transition: all 1s;
+    transition: opacity 0.8s ease, filter 0.8s ease;
 }
 
 .hiddenLeft {
@@ -433,10 +661,15 @@ nav ul li:hover, nav svg:hover {
     transform: translateX(100%);
 }
 
+.hiddenUp {
+    transform: translateY(30%);
+}
+
 .show {
     opacity: 1;
     filter: blur(0);
-    transform: translateX(0);
+    transform: translate(0, 0);
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
 }
 
 
