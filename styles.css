@@ -249,12 +249,80 @@ nav ul li:hover, nav svg:hover {
 /* HOME SECTION ABOVE */
 
 
+.Technologies {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+    padding: clamp(40px, min(8vw, 15vh), 50px) clamp(16px, 5vw, 40px) clamp(40px, min(8vw, 15vh), 80px) clamp(16px, 5vw, 40px); 
+}
+
+.Technologies h2 span {
+    font-size: 2.5rem;
+    color: var(--color-tertiary);
+}
+
+.Technologies h2 {
+    color: var(--text);
+    font-size: 2rem;
+}
+
+.Technologies p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.technologiesContainer {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+}
+
+.technologiesContainer img{
+    width: 64px;
+    border-radius: 8px;
+    aspect-ratio: 1/1;
+}
+
+.technologyCard {
+    padding: 16px 16px;
+    border-radius: 25px;
+    background-color: var(--bg-dark);
+    display: flex;
+    color: var(--text);
+    gap: 24px;
+    box-shadow: var(--shadow);
+    border: var(--border-card);
+    transition: all 0.3s ease;
+}
+
+.technologyCard:hover {
+    background-color: var(--bg-gradient-hover);
+    border-top: 1px solid var(--highlight);
+    will-change: scale;
+    scale: 1.02;
+}
+
+.technologyCard h3 {
+    font-size: 1.4rem;
+}
+
+.technologyCardText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* CURRENT TECHNOLOGIES SECTION ABOVE */
+
+
 .Projects {
     display: flex;
     gap: 16px;
     flex-direction: column;
     border-bottom: 1px solid var(--border);
-    padding: 16px clamp(16px, 5vw, 40px); 
+    padding: clamp(40px, min(8vw, 15vh), 50px) clamp(16px, 5vw, 40px) clamp(40px, min(8vw, 15vh), 80px) clamp(16px, 5vw, 40px); 
 }
 
 .Projects h2 span {
@@ -285,7 +353,7 @@ nav ul li:hover, nav svg:hover {
     border-top: 1px solid var(--highlight);
     will-change: scale;
     scale: 1.02;
-    transform: translateY(-4px)
+    transform: translateY(-4px);
 }
 
 .ProjectImage {
@@ -342,6 +410,9 @@ nav ul li:hover, nav svg:hover {
 .GithubSVGDiv:hover .GithubSVG, .LivePreviewSVGDiv:hover .LivePreviewSVG {
     fill: var(--text);
 }
+
+
+/* PROJECT SECTION above */
 
 
 @media (max-width: 768px) {
