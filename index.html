@@ -11,8 +11,9 @@
 <body>
     <div class="leftMenuPanel" aria-hidden="true">
         <ul>
-            <li>Home&nbsp;&nbsp;&nbsp;-></li>
-            <li>Projects&nbsp;&nbsp;&nbsp;-></li>
+            <a href="#homeSection"><li>Home&nbsp;&nbsp;&nbsp;-></li></a>
+            <a href="#techSection"><li>TechStack&nbsp;&nbsp;&nbsp;-></li></a>
+            <a href="#projectSection"><li>Projects&nbsp;&nbsp;&nbsp;-></li></a>
             <li>Contact&nbsp;&nbsp;&nbsp;-></li>
         </ul>
     </div>
@@ -20,7 +21,8 @@
         <nav>
             <h1>Arqam<span>W</span>d</h1>
             <ul>
-                <li class="ul-hide">Home</li>
+                <li class="ul-hide"><a href="#homeSection">Home</a></li>
+                <li class="ul-hide"><a href="#techSection">TechStack</a></li>
                 <li class="ul-hide"><a href="#projectSection">Projects</a></li>
                 <li class="ul-hide">Contact</li>
                 <svg class="lightdark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
@@ -31,7 +33,7 @@
         </nav>
 
 
-        <section class="Home">
+        <section class="Home hidden hiddenLeft" id="homeSection">
             <div class="HomeText">
                 <h2>Hey, I'm</h2>
                 <h2>Arqam Waheed</h2>
@@ -44,12 +46,12 @@
             </div>
         </section>
 
-        
-        <section class="Technologies">
-            <h2>Current Technologies</h2>
+
+        <section id="techSection" class="Technologies hidden hiddenRight">
+            <h2><span>C</span>urrent Technologies</h2>
             <p>I'm proficient in a range of modern technologies that empower me to build highly functional solutions.<br> These are some of my main technologies.</p>
             <div class="technologiesContainer">
-                <div class="technologyCard">
+                <div class="technologyCard hidden">
                     <div class="technologyCardImage">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
                     </div>
@@ -58,7 +60,7 @@
                         <p>HTML5</p>
                     </div>
                 </div>
-                <div class="technologyCard">
+                <div class="technologyCard hidden">
                     <div class="technologyCardImage">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
                     </div>
@@ -67,8 +69,8 @@
                         <p>Vanilla CSS3</p>
                     </div>
                 </div>
-                <div class="technologyCard">
-                    <div class="technologyCardImage">
+                <div class="technologyCard hidden">
+                    <div class="technologyCardImage hidden">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
                     </div>
                     <div class="technologyCardText">
@@ -76,7 +78,7 @@
                         <p>Vanilla ES6+</p>
                     </div>
                 </div>
-                <div class="technologyCard">
+                <div class="technologyCard hidden">
                     <div class="technologyCardImage">                        
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />          
                     </div>
@@ -85,7 +87,7 @@
                         <p>JavaScript Library</p>
                     </div>
                 </div>
-                <div class="technologyCard">
+                <div class="technologyCard hidden">
                     <div class="technologyCardImage">
                         <img src="./images/TailwindLogo.png" alt="Tailwind logo">
                     </div>
@@ -94,7 +96,7 @@
                         <p>CSS Framework</p>
                     </div>
                 </div>
-                <div class="technologyCard">
+                <div class="technologyCard hidden">
                     <div class="technologyCardImage">                        
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
                     </div>
@@ -106,9 +108,9 @@
             </div>
         </section>
 
-        <section id="projectSection" class="Projects">
+        <section id="projectSection" class="Projects hidden">
             <h2><span>P</span>rojects</h2>
-            <div class="ProjectCard">
+            <div class="ProjectCard hidden hiddenLeft">
                 <div class="ProjectImage">
                     <img src="./images/Battleship.png" alt="Battleship Game">
                 </div>
@@ -131,7 +133,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ProjectCard">
+            <div class="ProjectCard hidden hiddenRight">
                 <div class="ProjectImage">
                     <img src="./images/Weatherapp.png" alt="Battleship Game">
                 </div>
@@ -154,7 +156,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ProjectCard">
+            <div class="ProjectCard hidden hiddenLeft">
                 <div class="ProjectImage">
                     <img src="./images/Todolist.png" alt="Battleship Game">
                 </div>

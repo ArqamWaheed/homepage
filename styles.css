@@ -90,6 +90,11 @@ h6 {
     --border-card: 1px solid var(--bg);
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg);
     transition: background-color 0.5s ease, color 0.5s ease; 
@@ -414,6 +419,34 @@ nav ul li:hover, nav svg:hover {
 
 /* PROJECT SECTION above */
 
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s;
+}
+
+.hiddenLeft {
+    transform: translateX(-100%);
+}
+
+.hiddenRight {
+    transform: translateX(100%);
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+
+
+@media (prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
 
 @media (max-width: 768px) {
     .ProjectCard {

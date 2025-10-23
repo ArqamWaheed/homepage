@@ -8,10 +8,8 @@ $themeSvg.addEventListener('click', function() {
     $body.classList.toggle("light");
 })
 
-$menuBtn.addEventListener('click', function(e) {
-    e.stopPropagation(); 
+function toggleLeftMenuPanel() {
     const currentTransform = $leftMenuPanel.style.transform;
-    
     if (currentTransform === 'translateX(0px)') {
         $leftMenuPanel.style.transform = 'translateX(-300px)';
         $container.style.filter = 'none';
@@ -19,6 +17,17 @@ $menuBtn.addEventListener('click', function(e) {
         $leftMenuPanel.style.transform = 'translateX(0px)';
         $container.style.filter = 'blur(3px)';
     }
+}
+
+$leftMenuPanel.addEventListener('click', function(e) {
+    if (e.target.tagName == 'LI' ) {
+        toggleLeftMenuPanel();
+    }
+})
+
+$menuBtn.addEventListener('click', function(e) {
+    e.stopPropagation(); 
+    toggleLeftMenuPanel();
 })
 
 document.addEventListener('click', function(e) {
@@ -33,4 +42,18 @@ document.addEventListener('click', function(e) {
 $leftMenuPanel.addEventListener('click', function(e) {
     e.stopPropagation();
 })
+
+const hiddenElements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    })
+})
+
+hiddenElements.forEach((el) => observer.observe(el));
 
