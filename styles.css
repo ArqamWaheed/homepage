@@ -449,7 +449,7 @@ nav ul li:hover, nav svg:hover {
     font-weight: 600;
 }
 
-.Contact a {
+.underline {
     font-size: 1.5rem;
     color: var(--color-tertiary);
     border-bottom: 1px solid hsl(305, 80%, 85%);
