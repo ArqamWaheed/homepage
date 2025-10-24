@@ -1,8 +1,14 @@
-$body = document.querySelector("body");
-$themeSvg = document.querySelector(".lightdark-icon");
-$menuBtn = document.querySelector(".menu-icon");
-$container = document.querySelector(".container");
-$leftMenuPanel = document.querySelector(".leftMenuPanel");
+const $body = document.querySelector("body");
+const $themeSvg = document.querySelector(".lightdark-icon");
+const $menuBtn = document.querySelector(".menu-icon");
+const $container = document.querySelector(".container");
+const $leftMenuPanel = document.querySelector(".leftMenuPanel");
+const $loaderWrapper = document.querySelector(".loader-wrapper");
+
+window.onload = function() {
+    $body.classList.remove("preload");
+    $loaderWrapper.style.opacity = 0;
+};
 
 $themeSvg.addEventListener('click', function() {
     $body.classList.toggle("light");
