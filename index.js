@@ -19,7 +19,8 @@ window.onload = function() {
     setTimeout(() => {
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
-    }, 0);
+        $loaderWrapper.style.display = "none";
+    }, 500);
 };
 
 $themeSvg.addEventListener('click', function() {
