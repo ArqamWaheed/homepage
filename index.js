@@ -63,7 +63,7 @@ $leftMenuPanel.addEventListener('click', function(e) {
 })
 
 const $emailCopyBtn = document.querySelector('.emailDivSVG');
-const emailText = 'arqam.dev.waheed@gmail.com';
+const emailText = 'arqam.waheed.dev@gmail.com';
 
 $emailCopyBtn.addEventListener('click', async function() {
     try {
