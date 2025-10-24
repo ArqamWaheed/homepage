@@ -5,9 +5,21 @@ const $container = document.querySelector(".container");
 const $leftMenuPanel = document.querySelector(".leftMenuPanel");
 const $loaderWrapper = document.querySelector(".loader-wrapper");
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+
+window.scrollTo(0, 0);
+document.documentElement.scrollTop = 0;
+
 window.onload = function() {
     $body.classList.remove("preload");
     $loaderWrapper.style.opacity = 0;
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+    }, 0);
 };
 
 $themeSvg.addEventListener('click', function() {
@@ -127,10 +139,6 @@ const observer = new IntersectionObserver((entries) => {
         } 
     })
 })
-
-window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
-});
 
 hiddenElements.forEach((el) => observer.observe(el));
 
