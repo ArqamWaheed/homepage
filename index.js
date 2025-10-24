@@ -68,12 +68,44 @@ const emailText = 'arqam.waheed.dev@gmail.com';
 $emailCopyBtn.addEventListener('click', async function() {
     try {
         await navigator.clipboard.writeText(emailText);
+        
+        const notification = document.createElement('div');
+        notification.className = 'copy-notification';
+        notification.textContent = '✓ Email copied!';
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 2000);
+        
     } catch (err) {
         console.error('Failed to copy email:', err);
+        
+        const notification = document.createElement('div');
+        notification.className = 'copy-notification error';
+        notification.textContent = '✗ Failed to copy';
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 2000);
     }
 });
 
-// Contact Form Handler
 const contactForm = document.getElementById('contactForm');
 const submitBtn = contactForm.querySelector('.submitBtn');
 const submitBtnText = contactForm.querySelector('.submitBtnText');
@@ -84,7 +116,6 @@ const formMessage = contactForm.querySelector('.formMessage');
 contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Show loading state
     submitBtn.disabled = true;
     submitBtnText.textContent = 'Sending...';
     submitBtnIcon.style.display = 'none';
@@ -92,7 +123,6 @@ contactForm.addEventListener('submit', async function(e) {
     formMessage.textContent = '';
     formMessage.className = 'formMessage';
     
-    // Get form data
     const formData = new FormData(contactForm);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -123,7 +153,6 @@ contactForm.addEventListener('submit', async function(e) {
         formMessage.textContent = '✗ Failed to send. Check console for details.';
         formMessage.classList.add('error');
     } finally {
-        // Reset button state
         submitBtn.disabled = false;
         submitBtnText.textContent = 'Submit';
         submitBtnIcon.style.display = 'block';
